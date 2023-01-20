@@ -5,6 +5,9 @@ var path = require('path');
 require("dotenv").config()
 
 const { CONNECTION_STRING, PORT } = process.env
+const { seed } = require('./controller')
+
+
 
 console.log(PORT)
 
@@ -20,8 +23,7 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public'))
 })
-
-
+app.post('/seed', seed)
 
 
 
