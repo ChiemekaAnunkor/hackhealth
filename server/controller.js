@@ -65,7 +65,7 @@ module.exports = {
         const { freq, name, dosage, user_id } = req.body
         sequelize.query(`
         insert into prescription(name, dosage, freq, user_id)
-        values('${name}','${dosage} mg','${freq} times a day',${user_id})
+        values('${name}','${dosage}','${freq}',${user_id})
         `).then(() => res.sendStatus(200))
     },
     getPrescription: (req, res) => {
