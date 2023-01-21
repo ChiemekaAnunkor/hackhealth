@@ -49,9 +49,11 @@ module.exports = {
     },
     deleteAppointment: (req, res) => {
 
-        const { time, description, user_id } = req.body
-        sequelize.query(`insert into appointment (time, description, user_id)
-                        values('${time}','${description}', ${user_id});
+        const { appointment_id } = req.body
+        sequelize.query(`
+        delete from appointment 
+        where appointment_id = ${appointment_id}        
+        
         `)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err));

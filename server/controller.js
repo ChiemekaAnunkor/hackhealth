@@ -52,46 +52,43 @@ module.exports = {
         ('Lisa','Rodriguez','Psychiatrist','https://media.istockphoto.com/photos/doctor-holding-digital-tablet-at-meeting-room-picture-id1189304032?b=1&k=20&m=1189304032&s=612x612&w=0&h=3IlZQ_IDMJDkjPCThsflr8vmCZVPmxXPWLzsxb8rShQ=')
         
     `).then(() => {
-                console.log('DB seeded!')
-                res.sendStatus(200)
-            }).catch(err => console.log('error seeding DB', err))
+            console.log('DB seeded!')
+            res.sendStatus(200)
+        }).catch(err => console.log('error seeding DB', err))
 
     },
-    getPhysicians:(req, res) => {
+    getPhysicians: (req, res) => {
         sequelize.query(`
         select * from doctor
-        `).then(dbres=> res.status(200).send(dbres[0])
+        `).then(dbres => res.status(200).send(dbres[0])
         )
     },
-    addPrescription:(req, res) => {
-        const {freq, name, dosage, user_id} = req.body
+    addPrescription: (req, res) => {
+        const { freq, name, dosage, user_id } = req.body
         sequelize.query(`
         insert into prescription(name, dosage, freq, user_id)
         values('${name}',${dosage},${freq},${user_id})
-        `).then(dbres =>res.status(200).send(dbres[0]))
+        `).then(() => res.sendStatus(200))
     },
-    getPrescription:(req, res) => {
-        const {user_id} = req.body
+    getPrescription: (req, res) => {
+        const { user_id } = req.body
         sequelize.query(`
         select * from prescription
         where user_id = ${user_id}
-        `).then(dbres =>res.status(200).send(dbres[0]))
+        `).then(dbres => res.status(200).send(dbres[0]))
 
     },
-    deletePrescription:(req, res) => {
-        const {pres_id} = req.body
+    deletePrescription: (req, res) => {
+        const { pres_id } = req.body
         sequelize.query(`
         delete from prescription 
         where pres_id = ${pres_id}        
         
-        `).then(()=>{
+        `).then(() => {
 
             console.log('deleted')
             res.sendStatus(200)
         })
     }
-
-
-
 
 }
