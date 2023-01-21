@@ -28,7 +28,7 @@ header{
 }
 section.card{
     height: 500px;
-    width: 300px;
+    width: 350px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,7 @@ section.card{
 }
 section.card img{
     height: 350px;
+    object-fit:contain;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -61,4 +62,14 @@ section.card img{
 }
 .content{
     text-align: center;
+}
+.main-container {
+    width: 100vw;
+    display: flex;
+}
+.prescription-container{
+    flex:1;
+}
+.doctor-container{
+    flex:1;
 }
