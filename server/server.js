@@ -37,7 +37,7 @@ app.post('/signUp', userSignup)
 app.get('/getPhysicians', getPhysicians)
 app.post('/addPrescription', addPrescription)
 app.post('/getPrescription', getPrescription)
-app.delete('/deletePrescription', deletePrescription)
+app.delete('/deletePrescription/:id', deletePrescription)
 
 
 

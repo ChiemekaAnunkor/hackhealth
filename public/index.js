@@ -2,6 +2,10 @@ const loginBtn = document.querySelector('#login-btn');
 const drContainer = document.querySelector('.doctor-container')
 const logoutBtn = document.querySelector('.logout');
 const deleteBtn=document.querySelector('#delete-btn')
+const presName=document.querySelector('#name')
+const dosage=document.querySelector('#dosage')
+const freq= document.querySelector('#freq')
+const presForm= document.querySelector('#pres-form')
 const prescriptionList=document.querySelector('.prescription-list')
 
 logoutBtn.addEventListener('click',()=>{
@@ -44,7 +48,7 @@ function renderItems(doctors) {
 
   const errCallback = err =>console.log(err)
   let userId=sessionStorage.getItem('userId')
-  console.log(typeof userId, 'userId')
+//   console.log(typeof userId, 'userId')
   let body=
   {
     user_id:+userId
@@ -52,7 +56,7 @@ function renderItems(doctors) {
   
 
 const getAllPres = () => axios.post(`${url}/getPrescription`,body).then(({data: presList})=> {
-    console.log(body,'body')
+    // console.log(body,'body')
     renderPres(presList)
 }).catch(errCallback)
 
@@ -74,5 +78,21 @@ const renderPres=(presList)=> {
 
 
   const deletePres=(id)=> {
-     axios.delete(`${url}/${id}`).then(getAllPres()).catch(errCallback)
+     axios.delete(`${url}/deletePrescription/${id}`).then(()=>getAllPres()).catch(errCallback)
   }
+
+  const addPrescription =(e)=> {
+    e.preventDefault();
+
+    let body={
+        name:presName.value,
+        dosage:dosage.value,
+        freq:freq.value,
+        user_id: +userId
+    }
+    axios.post(`${url}/addPrescription`,body).then(()=>getAllPres()).catch(errCallback)
+    presName.value=''
+    dosage.value=''
+    freq.value=''
+  }
+  presForm.addEventListener('submit', addPrescription)
