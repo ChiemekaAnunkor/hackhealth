@@ -77,10 +77,10 @@ module.exports = {
 
     },
     deletePrescription: (req, res) => {
-        const { pres_id } = req.body
+        const { id } = req.params
         sequelize.query(`
         delete from prescription 
-        where pres_id = ${pres_id}        
+        where pres_id = ${id}        
         
         `).then(() => {
 
