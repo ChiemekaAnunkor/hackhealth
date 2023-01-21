@@ -44,18 +44,19 @@ function renderItems(doctors) {
 
   const errCallback = err =>console.log(err)
   let userId=sessionStorage.getItem('userId')
+  console.log(typeof userId, 'userId')
   let body=
   {
-    user_id:userId
+    user_id:+userId
   }
   
 
-const getAllPres = () => axios.post(`${url}/getPrescriptions`,body).then(({data: presList})=> {
+const getAllPres = () => axios.post(`${url}/getPrescription`,body).then(({data: presList})=> {
     console.log(body,'body')
     renderPres(presList)
 }).catch(errCallback)
 // const createProduct = (id) => axios.post(`${baseURL}/${id}`).then(productCallback).catch(errCallback)
-// const deleteProduct = (id) => axios.delete(`${baseURL}/${id}`).then(productCallback).catch(errCallback)
+
 
 const renderPres=(presList)=> {
     let pres=presList.map((el)=> {
@@ -73,5 +74,5 @@ const renderPres=(presList)=> {
 
 
   const deletePres=(id)=> {
-
+     axios.delete(`${url}/${id}`).then(getAllPres()).catch(errCallback)
   }
