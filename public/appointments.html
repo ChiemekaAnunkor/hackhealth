@@ -8,35 +8,22 @@
     <link rel="stylesheet" href="appointment.css" />
   </head>
   <body>
-    <span> docker: <span>doctor name</span></span>
+    <label for="doctors">Choose a Doctor: </label>
+    <select name="doctors" id="doctors"></select>
+    <button class="apptbutton">See Availability</button>
+    <div class="time-container"></div>
 
-    <button class="apptbutton">appointment</button>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <select name="" id="availabletime"></select>
 
-    <div class="time-container">
-      <button>
-        <div class="time-card">
-          <span>time: </span>
-          <span class="time"> 8:00 </span>
-          <span class="time"> -8:00 +1</span>
-        </div>
-      </button>
-
-      <button>
-        <div class="time-card">
-          <span>time: </span>
-          <span class="timessss"> 9:00</span>
-          <span class="time"> -9:00 +1</span>
-        </div>
-      </button>
-
-      <button>
-        <div class="time-card">
-          <span>time: </span>
-          <span class="time"> 9:00</span>
-          <span class="time"> -9:00 +1</span>
-        </div>
-      </button>
+        <button class="submitAppointment">Submit</button>
+      </div>
     </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="appointment.js"></script>
   </body>
