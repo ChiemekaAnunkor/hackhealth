@@ -20,11 +20,11 @@ module.exports = {
         drop table if exists doctor;
 
         create table users (
-            id serial primary key, 
-            first_name varchar(100),
-            last_name varchar(100),
+            user_id serial primary key, 
+            firstName varchar(100),
+            lastName varchar(100),
             email varchar(100),
-            password varchar(100)
+            passHash varchar(100)
         );
 
         create table prescription(
@@ -32,7 +32,7 @@ module.exports = {
             name varchar(150),
             dosage int, 
             freq int,
-            id INT references users(id)
+            user_id INT references users(user_id)
         );
 
         create table doctor (
@@ -49,21 +49,21 @@ module.exports = {
             }).catch(err => console.log('error seeding DB', err))
 
     },
+
     cancelAppointment: (req, res) => {
 
     },
-    getAppointments:(req, res) => {
 
-    },
+    
     getPhysicians:(req, res) => {
 
     },
     addPrescription:(req, res) => {
-        
+        'user_id'
     },
     getPrescription:(req, res) => {
 
-    },
+    }
 
 
 
