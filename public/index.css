@@ -114,3 +114,7 @@ section.card img{
     top:5px;
     right:5px;
   }
+  .prescription-form form{
+    display: flex;
+    flex-direction: column;
+  }
