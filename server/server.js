@@ -6,9 +6,9 @@ const bcrypt = require('bcryptjs');
 require("dotenv").config()
 
 const { CONNECTION_STRING, PORT } = process.env
-const { seedAppointment, addAppointment, getAppointment } = require('./appointmnet')
-const { seed , getPhysicians,addPrescription,getPrescription,deletePrescription} = require('./controller')
-const {userLogin, userSignup} = require('./authController')
+const { seedAppointment, addAppointment, getAppointment, deleteAppointment } = require('./appointmnet')
+const { seed, getPhysicians, addPrescription, getPrescription, deletePrescription } = require('./controller')
+const { userLogin, userSignup } = require('./authController')
 
 
 console.log(PORT)
@@ -30,6 +30,8 @@ app.post('/seed', seed)
 app.post('/seedapt', seedAppointment)
 app.post("/appointment", addAppointment)
 app.get("/appointment", getAppointment)
+app.delete("/appointment", deleteAppointment)
+
 
 
 app.post('/login', userLogin)
