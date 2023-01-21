@@ -31,18 +31,22 @@ module.exports = {
         const { email,password} = req.body
         sequelize.query(`select * from users where email = '${email}'`)
         .then(dbRes => {
-            if(!dbRes[0][0]){
+            console.log(dbRes[0][0]);
+            if(typeof dbRes[0][0]== "undefined"){
                 res.status(400).send('Account not found, try signing up')
             }
-            
-            const authenticated = bcrypt.compareSync(password,dbRes[0][0].passhash)
-            !authenticated ? res.status(403).send('incorrect password') : delete dbRes[0][0].passhash
+            else {
+                const authenticated = bcrypt.compareSync(password,dbRes[0][0].passhash)
+                !authenticated ? res.status(403).send('incorrect password') : delete dbRes[0][0].passhash
+    
+                const token = createToken(email, dbRes[0][0].user_id);
+                console.log('token', token)
+    
+                const userToSend = {...dbRes[0][0], token}
+                res.status(200).send(userToSend)
 
-            const token = createToken(email, dbRes[0][0].user_id);
-            console.log('token', token)
 
-            const userToSend = {...dbRes[0][0], token}
-            res.status(200).send(userToSend)
+            }
         })
         .catch(err => console.log(err))
 
@@ -59,8 +63,8 @@ module.exports = {
                 let salt = bcrypt.genSaltSync(10)
                 const passhash = bcrypt.hashSync(password,salt)
                 sequelize.query(`
-                    insert into users(firstname, lastname, email, passhash) 
-                    values('${firstName}','${lastName}'${email}','${passhash}',);
+                    insert into users(firstName, lastName, email, passHash) 
+                    values('${firstName}','${lastName}','${email}','${passhash}');
                     select * from users where email = '${email}';
                 `).then(dbResponse => {
                     console.log(dbResponse[0])

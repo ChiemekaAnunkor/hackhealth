@@ -23,16 +23,14 @@ module.exports = {
             user_id serial primary key, 
             firstName varchar(100),
             lastName varchar(100),
-            email varchar(100),
-            passHash varchar(100)
+            email varchar(255),
+            passHash varchar(254)
         );
-        insert into users(firstName,lastName,email,passHash)
-        values('chumeeeks','tet','sahdihdiahsdi@sadih,com','asdawdd');
         create table prescription(
             pres_id serial primary key, 
             name varchar(150),
-            dosage int, 
-            freq int,
+            dosage varchar(250), 
+            freq varchar(20),
             user_id INT references users(user_id)
         );
 
@@ -67,7 +65,7 @@ module.exports = {
         const { freq, name, dosage, user_id } = req.body
         sequelize.query(`
         insert into prescription(name, dosage, freq, user_id)
-        values('${name}',${dosage},${freq},${user_id})
+        values('${name}','${dosage} mg','${freq} time a day',${user_id})
         `).then(() => res.sendStatus(200))
     },
     getPrescription: (req, res) => {
