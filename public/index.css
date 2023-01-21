@@ -54,7 +54,7 @@ section.card img{
 }
  i{
     color:white;
-    font-size:20px;
+    font-size:1.7rem;
     margin:10px;
 }
 #login-btn{
@@ -76,6 +76,7 @@ section.card img{
 .doctor-container{
     flex:6;
     width: 100%;
+    margin-left:4rem;
 }
 .prescription-list{
     background-color: #eceee5;
@@ -83,6 +84,7 @@ section.card img{
     display: flex;
     margin-top: 25px;
     flex-wrap:wrap;
+    border-radius:10px;
 }
 .logout{
     background-color: white;
@@ -113,8 +115,39 @@ section.card img{
     position:absolute;
     top:5px;
     right:5px;
+    border:none;
+    background: transparent;
+    color:red;
   }
   .prescription-form form{
     display: flex;
     flex-direction: column;
+  }
+  form input{
+    padding: 10px;
+    border-radius:5px;
+    margin:10px;
+  }
+  form{
+    margin:20px;
+  }
+  .btn {
+    padding: 0.5rem;
+    background-color:  #9FBB42;
+    color: white;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin:10px;
+  }
+  .btn:hover {
+    background-color: #333;
+  }
+  .pres-title{
+    text-align: center;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+  }
+  .type-text1{
+    margin-top:7px;
   }
