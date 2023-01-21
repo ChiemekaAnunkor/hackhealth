@@ -1,15 +1,9 @@
-
-.side-img{
-    width: 100%;
-}
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 * {
     box-sizing: border-box;
 }
 body{
-    background-image: url('https://www.moh.gov.et/site/sites/default/files/2021-04/medicalservice.jpg');
-    background-repeat: no-repeat;
-    background-size:100% 100%;
+    background-image: linear-gradient(to top, #9FBB42 0%, #f6f3ff 100%);
     color: #fff;
     font-family:'Muli', sans-serif;
     display: flex;
@@ -24,7 +18,6 @@ body{
     background-color: rgba(0,0,0,0.4);
     padding: 20px 40px;
     border-radius: 5px;
-    width:400px;
 }
 .container h1{
     text-align: center;
@@ -57,7 +50,7 @@ body{
 .form-control {
     position: relative;
     margin:20px 0 40px;
-    width: 300px;
+    width: 460px;
 }
 .form-control input {
     background-color: transparent;
@@ -90,7 +83,22 @@ body{
     color:lightblue;
     transform:translateY(-30px);
 }
-
-.content{
-    color:black;
+#state{
+    margin-left:8rem;
+    margin-top:1rem;
+    width: 335px;
+    padding:.5rem;
+    border-radius: 0.4rem;
+    outline:none;
+}
+@media (max-width: 450px) {
+    .container {
+        width:380px;
+    }
+    .form-control, form{
+        width: 300px;
+    }
+    #state{
+        width:170px;
+    }
 }
