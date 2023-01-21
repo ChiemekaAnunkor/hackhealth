@@ -1,14 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 var path = require('path');
+const bcrypt = require('bcryptjs');
 
 require("dotenv").config()
 
 const { CONNECTION_STRING, PORT } = process.env
-const { seed } = require('./controller')
 const { seedAppointment, addAppointment, getAppointment } = require('./appointmnet')
-
-
+const { seed , getPhysicians,addPrescription,getPrescription,deletePrescription} = require('./controller')
+const {userLogin, userSignup} = require('./authController')
 
 
 console.log(PORT)
@@ -22,6 +22,7 @@ app.use(express.static('public'))
 app.use(cors())
 app.use(express.json())
 
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public'))
 })
@@ -30,6 +31,13 @@ app.post('/seedapt', seedAppointment)
 app.post("/appointment", addAppointment)
 app.get("/appointment", getAppointment)
 
+
+app.post('/login', userLogin)
+app.post('/signUp', userSignup)
+app.get('/getPhysicians', getPhysicians)
+app.post('/addPrescription', addPrescription)
+app.post('/getPrescription', getPrescription)
+app.delete('/deletePrescription', deletePrescription)
 
 
 
