@@ -54,8 +54,7 @@ const getAllPres = () => axios.post(`${url}/getPrescriptions`,body).then(({data:
     console.log(body,'body')
     renderPres(presList)
 }).catch(errCallback)
-// const createProduct = (id) => axios.post(`${baseURL}/${id}`).then(productCallback).catch(errCallback)
-// const deleteProduct = (id) => axios.delete(`${baseURL}/${id}`).then(productCallback).catch(errCallback)
+
 
 const renderPres=(presList)=> {
     let pres=presList.map((el)=> {
