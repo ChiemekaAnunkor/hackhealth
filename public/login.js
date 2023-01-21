@@ -16,8 +16,8 @@ labels.forEach((label) => {
     .join("");
 });
 
-const baseUrl='http://127.0.0.1:5500'
-const login = (body) => axios.post(`${baseUrl}/api/login`, body)
+const baseUrl='http://localhost:4000'
+const login = (body) => axios.post(`${baseUrl}/login`, body)
     .then((res)=> {
         console.log('hit login')
   
@@ -30,7 +30,7 @@ const login = (body) => axios.post(`${baseUrl}/api/login`, body)
     })
     .catch((err)=> console.log(err));
 
-const signUp = (body) => axios.post(`${baseUrl}/api/signUp`, body)
+const signUp = (body) => axios.post(`${baseUrl}/signUp`, body)
     .then( async(res)=> {
         console.log('hit signUp')
       
@@ -65,7 +65,6 @@ authSubmit.addEventListener('click', (e)=> {
           const signUpBody = {
             email: email.value, 
             password: password.value,
-            address: address.value,
             firstName: firstName.value,
             lastName: lastName.value,
           };
@@ -73,7 +72,6 @@ authSubmit.addEventListener('click', (e)=> {
         } 
         email.value = ''
         password.value = ''
-        address.value = ''
         firstName.value = ''
         lastName.value = ''
 })

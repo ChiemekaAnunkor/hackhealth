@@ -1,9 +1,10 @@
 const loginBtn = document.querySelector('#login-btn');
 const drContainer = document.querySelector('.doctor-container')
 
+// const url='http://127.0.0.1:5500'
 const doctorsArr=[]
 
-const getAllDoctors = () => axios.get(url).then(({data: doctors})=> {
+const getAllDoctors = () => axios.get('http://localhost:4000/getPhysicians').then(({data: doctors})=> {
     renderItems(doctors)
 }).catch((error)=> console.log(error))
 
@@ -20,8 +21,8 @@ function renderItems(doctors) {
         alt="doctor"
       />
       <div class="content">
-      <h3 class="doctor">Dr.{item.first_name} {item.last_name}</h3>
-      <h4 class="title">{item.title}</h4>
+      <h3 class="doctor">Dr.${item.first_name} ${item.last_name}</h3>
+      <h4 class="title">${item.title}</h4>
       <p>Start-time: 09:00am</p>
       <p>End-time: 04:00pm</p>
     </div>
