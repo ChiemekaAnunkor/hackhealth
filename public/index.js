@@ -55,7 +55,7 @@ const getAllPres = () => axios.post(`${url}/getPrescription`,body).then(({data: 
     console.log(body,'body')
     renderPres(presList)
 }).catch(errCallback)
-// const createProduct = (id) => axios.post(`${baseURL}/${id}`).then(productCallback).catch(errCallback)
+
 
 
 const renderPres=(presList)=> {
