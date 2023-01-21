@@ -59,8 +59,8 @@ module.exports = {
                 let salt = bcrypt.genSaltSync(10)
                 const passhash = bcrypt.hashSync(password,salt)
                 sequelize.query(`
-                    insert into users(email,passhash,firstName,lastName) 
-                    values('${email}','${passhash}','${firstName}','${lastName}');
+                    insert into users(firstname, lastname, email, passhash) 
+                    values('${firstName}','${lastName}'${email}','${passhash}',);
                     select * from users where email = '${email}';
                 `).then(dbResponse => {
                     console.log(dbResponse[0])

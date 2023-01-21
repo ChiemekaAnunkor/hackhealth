@@ -13,8 +13,6 @@ const { userLogin, userSignup } = require('./authController')
 
 console.log(PORT)
 
-
-
 const app = express();
 
 
