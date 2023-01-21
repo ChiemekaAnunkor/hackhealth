@@ -6,6 +6,7 @@ require("dotenv").config()
 
 const { CONNECTION_STRING, PORT } = process.env
 const { seed } = require('./controller')
+const { seedTwo } = require('./appointmnet')
 
 
 
