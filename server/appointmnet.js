@@ -60,8 +60,10 @@ module.exports = {
             .catch(err => console.log(err));
     },
     getDoctorsAvaiblity: (req, res) => {
-        const { doctor_id } = req.body;
-        sequelize.query(`select * from appointment where doctor_id =${doctor_id} `)
+        const { doctor_id, date } = req.body;
+        sequelize.query(`select * from appointment join doctors as n 
+        on n.doctor_id = ${doctor_id}
+         where date = ${date}`)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err));
     },

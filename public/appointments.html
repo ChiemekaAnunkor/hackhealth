@@ -5,20 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Appointment</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="appointment.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <label for="doctors">Choose a Doctor: </label>
-    <select name="doctors" id="doctors"></select>
-    <button class="apptbutton">See Availability</button>
-    <div class="time-container"></div>
+    <header>
+      <div class="logo">
+        <img src="Hackhealth (2).png" alt="logo" />
+      </div>
+      <div class="icon-container">
+        <a href="/index.html">home</a>
+        <a href="/appointments.html">
+          <i class="fas fa-calendar-plus"></i>
+        </a>
+        <a href="./login.html"
+          ><i id="login-btn" class="fas fa-user"
+            ><span class="logout">Log out</span></i
+          ></a
+        >
+      </div>
+    </header>
+
+    <main>
+      <div class="content">
+        <h1>Welcome to Clinic Appointment</h1>
+        <p class="type-text1">
+          Management of clinical Appointment, Multiple Services, Patient
+          Registration.
+        </p>
+      </div>
+      <article class="main-wrapper">
+        <div class="prescription-container">
+          <div class="prescription-list"></div>
+          <div class="prescription-form">
+            <form id="pres-form">
+              <h2 class="pres-title">Add an Appointment</h2>
+              <label for="doctors">Choose a Doctor: </label>
+              <select name="doctors" id="doctors"></select>
+              <input id="date" type="date" />
+              <button class="apptbutton btn">See Availability</button>
+              <div class="time-container"></div>
+            </form>
+          </div>
+        </div>
+        <div class="doctor-container"></div>
+      </article>
+    </main>
 
     <div id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
         <select name="" id="availabletime"></select>
-
         <button class="submitAppointment">Submit</button>
       </div>
     </div>

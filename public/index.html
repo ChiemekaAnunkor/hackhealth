@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="Dapino-Medical-Medical-suitecase.ico">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="Dapino-Medical-Medical-suitecase.ico"
+    />
     <link rel="stylesheet" href="./index.css" />
     <link
       rel="stylesheet"
@@ -18,15 +22,17 @@
   <body>
     <header>
       <div class="logo">
-        <img
-          src="Hackhealth (2).png"
-          alt="logo"
-        />
+        <img src="Hackhealth (2).png" alt="logo" />
       </div>
       <div class="icon-container">
-        <i class="fas fa-calendar-check"></i>
-        <i class="fas fa-calendar-plus"></i>
-        <a href="./login.html"><i id="login-btn" class="fas fa-user"><span class="logout">Log out</span></i></a>
+        <a href="/appointments.html">
+          <i class="fas fa-calendar-plus"></i>
+        </a>
+        <a href="./login.html"
+          ><i id="login-btn" class="fas fa-user"
+            ><span class="logout">Log out</span></i
+          ></a
+        >
       </div>
     </header>
     <main>
@@ -39,30 +45,13 @@
       </div>
       <article class="main-wrapper">
         <div class="prescription-container">
-          <div class="prescription-list">
-            <!-- <div class="prescription">
-              <h3 class="pres-title">Azythromicin</h3>
-              <h4 class="dosage">20 mg</h4>
-              <p>2 times a day</p>
-              <button id="delete-btn">X</button>
-            </div>
-            <div class="prescription">
-              <h3 class="pres-title">Azythromicin</h3>
-              <h4 class="dosage">20 mg</h4>
-              <p>2 times a day</p>
-            </div>
-            <div class="prescription">
-              <h3 class="pres-title">Azythromicin</h3>
-              <h4 class="dosage">20 mg</h4>
-              <p>2 times a day</p>
-            </div> -->
-          </div>
+          <div class="prescription-list"></div>
           <div class="prescription-form">
             <form id="pres-form">
               <h2 class="pres-title">Add a Prescription</h2>
-              <input type='text' placeholder='Name of medication' id='name'/>
-              <input type='number' placeholder='Frequency' id='freq'/>
-              <input type='number' placeholder='Dosage' id='dosage'/>
+              <input type="text" placeholder="Name of medication" id="name" />
+              <input type="number" placeholder="Frequency" id="freq" />
+              <input type="number" placeholder="Dosage" id="dosage" />
               <button type="submit" class="btn">Add</button>
             </form>
           </div>
