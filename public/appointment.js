@@ -1,6 +1,14 @@
 const apptButtom = document.querySelector(".apptbutton")
 const timeContainer = document.querySelector(".time-container")
 const doctor = document.getElementById("doctors");
+const date = document.getElementById("date")
+const selectedTime = document.querySelector(".time-container")
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+const availableTimes = document.getElementById("availabletime");
+const sucesseMessage = document.querySelector(".successAppointment")
+const submitAppointment = document.querySelector(".submitAppointment")
+
 
 axios.get('http://localhost:4000/getPhysicians').then(({ data: doctors }) => {
     let doctorList = doctors.map((d) => {
@@ -15,12 +23,14 @@ let avaiblity = ["9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:0
 
 let docstime = []
 const findDoctor = (e) => {
+    e.preventDefault()
 
     let doctor_id = parseInt(doctor.value)
     console.log(doctor_id)
+    console.log(date.value)
 
 
-    axios.post('http://localhost:4000/getDoctorsAvaiblity', { doctor_id: doctor_id }).then(({ data: doctorsAvaiblity }) => {
+    axios.post('http://localhost:4000/getDoctorsAvaiblity', { doctor_id: doctor_id, date: data.value }).then(({ data: doctorsAvaiblity }) => {
 
         let doctorTime = avaiblity.map((t) => {
 
@@ -52,7 +62,6 @@ const findDoctor = (e) => {
 
         })
 
-
         timeContainer.innerHTML = doctorTime
     }).catch((error) => console.log(error))
 
@@ -63,25 +72,16 @@ const findDoctor = (e) => {
 
         console.log(selectedTime)
 
-
-
     }
 
-    selectedTime.addEventListener("click", handleAppointment)
 
 
 }
 
 
-const selectedTime = document.querySelector(".time-container")
-var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
-const availableTimes = document.getElementById("availabletime");
-const sucesseMessage = document.querySelector(".successAppointment")
-const submitAppointment = document.querySelector(".submitAppointment")
-
-
 const handleAppointment = (e) => {
+    e.preventDefault()
+
     console.log(selectedTime)
     modal.style.display = "block";
 }
@@ -89,6 +89,8 @@ span.onclick = function () {
     modal.style.display = "none";
 }
 window.onclick = function (event) {
+    event.preventDefault()
+
     if (event.target == modal) {
         modal.style.display = "none";
     }

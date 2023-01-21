@@ -1,153 +1,153 @@
-
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    font-family:'Muli', sans-serif;
-    height:100vh;
+body {
+  font-family: "Muli", sans-serif;
+  height: 100vh;
 }
-header{
-    height: 7rem;
-    width: 100vw;
-    background: #9FBB42;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header {
+  height: 7rem;
+  width: 100vw;
+  background: #9fbb42;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.logo img{
-    width: 5rem;
-    height: 5rem;
-    margin-left:20px;
+.logo img {
+  width: 5rem;
+  height: 5rem;
+  margin-left: 20px;
 }
-.doctor-container{
-    display: flex;
-    flex-wrap:wrap;
+.doctor-container {
+  display: flex;
+  flex-wrap: wrap;
 }
-section.card{
-    height: 500px;
-    width: 350px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    flex-direction: column;
-    border-radius:10px;
-    margin:2rem;
+section.card {
+  height: 500px;
+  width: 350px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 2rem;
 }
-section.card img{
-    height: 350px;
-    object-fit:cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+section.card img {
+  height: 350px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.content{
-    margin:20px;
+.content {
+  margin: 20px;
 }
-.doctor{
-    text-align: center;
+.doctor {
+  text-align: center;
 }
-.title{
-    text-align: center;
-    margin:10px;
-    color:green;
+.title {
+  text-align: center;
+  margin: 10px;
+  color: green;
 }
- i{
-    color:white;
-    font-size:1.7rem;
-    margin:10px;
+i {
+  color: white;
+  font-size: 1.7rem;
+  margin: 10px;
 }
-#login-btn{
-    margin-right:20px;
+#login-btn {
+  margin-right: 20px;
 }
-.content{
-    text-align: center;
+.content {
+  text-align: center;
 }
 .main-wrapper {
-    width: 100vw;
-    height: 80vh;
-    display: flex;
-    flex-direction: row;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
 }
-.prescription-container{
-    flex:4;
-    width: 100%;
+.prescription-container {
+  flex: 4;
+  width: 100%;
 }
-.doctor-container{
-    flex:6;
-    width: 100%;
-    margin-left:4rem;
+.doctor-container {
+  flex: 6;
+  width: 100%;
+  margin-left: 4rem;
 }
-.prescription-list{
-    background-color: #eceee5;
-    padding:20px;
-    display: flex;
-    margin-top: 25px;
-    flex-wrap:wrap;
-    border-radius:10px;
+.prescription-list {
+  background-color: #eceee5;
+  padding: 20px;
+  display: flex;
+  margin-top: 25px;
+  flex-wrap: wrap;
+  border-radius: 10px;
 }
-.logout{
-    background-color: white;
-    text-transform:'lowercase';
-    color:black;
-    position:absolute;
-    top:4.3rem;
-    right:0;
-    padding: 0.3rem;
-    font-size:14px;
-    font-weight: 300;
-    display:none;
-  }
-  #login-btn:hover > .logout{
-    display:block;
-  }
-  .prescription{
-    width: 45%;
-    text-align: center;
-    background-color: white;
-    margin:5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius:10px;
-    padding: 5px;
-    position:relative;
-  }
-  #delete-btn{
-    position:absolute;
-    top:5px;
-    right:5px;
-    border:none;
-    background: transparent;
-    color:red;
-  }
-  .prescription-form form{
-    display: flex;
-    flex-direction: column;
-  }
-  form input{
-    padding: 10px;
-    border-radius:5px;
-    margin:10px;
-  }
-  form{
-    margin:20px;
-  }
-  .btn {
-    padding: 0.5rem;
-    background-color:  #9FBB42;
-    color: white;
-    font-size: 2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    margin:10px;
-  }
-  .btn:hover {
-    background-color: #333;
-  }
-  .pres-title{
-    text-align: center;
-    margin-top:0.5rem;
-    margin-bottom:0.5rem;
-  }
-  .type-text1{
-    margin-top:7px;
-  }
+.logout {
+  background-color: white;
+  text-transform: "lowercase";
+  color: black;
+  position: absolute;
+  top: 4.3rem;
+  right: 0;
+  padding: 0.3rem;
+  font-size: 14px;
+  font-weight: 300;
+  display: none;
+}
+#login-btn:hover > .logout {
+  display: block;
+}
+.prescription {
+  width: 45%;
+  text-align: center;
+  background-color: white;
+  margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 5px;
+  position: relative;
+}
+#delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: transparent;
+  color: red;
+}
+.prescription-form form {
+  display: flex;
+  flex-direction: column;
+}
+form input,
+select {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+form {
+  margin: 20px;
+}
+.btn {
+  padding: 0.5rem;
+  background-color: #9fbb42;
+  color: white;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 10px;
+}
+.btn:hover {
+  background-color: #333;
+}
+.pres-title {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.type-text1 {
+  margin-top: 7px;
+}
