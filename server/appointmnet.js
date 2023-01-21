@@ -21,7 +21,8 @@ module.exports = {
             appointment_id serial primary key, 
             time text,
             description text,
-            user_id INT references users(user_id)
+            user_id INT references users(user_id),
+            doctor_id INT references doctor (doctor_id)
         );
 
 
@@ -40,9 +41,9 @@ module.exports = {
 
     addAppointment: (req, res) => {
 
-        const { time, description, user_id } = req.body
-        sequelize.query(`insert into appointment (time, description, user_id)
-                        values('${time}','${description}', ${user_id});
+        const { time, description, user_id, doctor_id } = req.body
+        sequelize.query(`insert into appointment (time, description, user_id, doctor_id)
+                        values('${time}','${description}', ${user_id},${doctor_id});
         `)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err));
@@ -55,6 +56,18 @@ module.exports = {
         where appointment_id = ${appointment_id}        
         
         `)
+            .then(dbRes => res.status(200).send(dbRes[0]))
+            .catch(err => console.log(err));
+    },
+    getDoctorsAvaiblity: (req, res) => {
+        const { doctor_id } = req.body;
+        sequelize.query(`select * from appointment where doctor_id =${doctor_id} `)
+            .then(dbRes => res.status(200).send(dbRes[0]))
+            .catch(err => console.log(err));
+    },
+    getUserAppointment: (req, res) => {
+        const { user_id } = req.body;
+        sequelize.query(`select * from appointment where user_id =${user_id} `)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err));
     },
