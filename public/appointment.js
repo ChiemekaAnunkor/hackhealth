@@ -1,5 +1,7 @@
 const apptButtom = document.querySelector(".apptbutton")
 const timeContainer = document.querySelector(".time-container")
+const logoutBtn = document.querySelector('.logout');
+
 const doctor = document.getElementById("doctors");
 const date = document.getElementById("date")
 const selectedTime = document.querySelector(".time-container")
@@ -7,9 +9,16 @@ var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 const availableTimes = document.getElementById("availabletime");
 const sucesseMessage = document.querySelector(".successAppointment")
-const submitAppointment = document.querySelector("#apt-form")
+const submitAppointment = document.querySelector(".apt-form")
 let formItem = document.getElementById("timeselector")
 let desc = document.getElementById("description")
+
+if(!sessionStorage.getItem('token')){
+    window.location.href='./login.html'
+}
+logoutBtn.addEventListener('click',()=>{
+    sessionStorage.clear();
+})
 
 
 axios.get('http://localhost:4000/getPhysicians').then(({ data: doctors }) => {
@@ -31,38 +40,37 @@ const findDoctor = (e) => {
     let doctor_id = parseInt(doctor.value)
     console.log(doctor_id)
     console.log(date.value)
-
+    
 
     axios.post('http://localhost:4000/getDoctorsAvaiblity', { doctor_id: doctor_id, date: date.value }).then(({ data: doctorsAvaiblity }) => {
+        // console.log(doctorsAvaiblity);
+        // console.log(doctorsAvaiblity.length);
+        // console.log(usTime.length)
 
-        console.log(doctorsAvaiblity)
+        // console.log(doctorsAvaiblity)
         let doctorTime = avaiblity.map((t, index) => {
-
-            if (doctorsAvaiblity[0]) {
-
+            
+            if (doctorsAvaiblity.length >0){
+                
                 for (let i = 0; i < doctorsAvaiblity.length; i++) {
-
-
-                    if (doctorsAvaiblity[i].time != t) {
-                        docstime.push(t)
-
-                        return `
-            <option value="${usTime[index]}">${usTime[index]}</option>
-              
-            ` }
-                }
-            } else {
-                docstime.push(t)
-
-                return `
+                    // console.log(t == doctorsAvaiblity[i].time);
+                        if (doctorsAvaiblity[i].time != t) {
+                            docstime.push(t)
+    
+                            return `
                 <option value="${usTime[index]}">${usTime[index]}</option>
-
-            `
-            }
-
-
-
-        })
+                  
+                ` 
+            }}
+          
+                }
+                else {
+                    docstime.push(t)
+    
+                    return `
+                    <option value="${usTime[index]}">${usTime[index]}</option>
+                `
+                }})
 
         timeContainer.innerHTML = doctorTime
     }).catch((error) => console.log(error))
@@ -113,17 +121,22 @@ apptButtom.addEventListener("click", findDoctor)
 const appointmentSubmit = (e) => {
     e.preventDefault()
 
-    // alert("sucesss")
 
-
-    console.log(desc)
-    console.log(formItem.value)
-
+    let foritemCopy = `'${formItem.value}'`
+    let doctor_id = parseInt(doctor.value)
 
     let userId = sessionStorage.getItem('userId')
+    body ={
+        date:date.value,
+        doctor_id:doctor_id,
+        user_id:userId,
+        time:foritemCopy,
+        description:desc.value
+    }
+    console.log(body);
 
-
-    // axios.post()
+    axios.post('http://localhost:4000/appointment',body).then(
+        ()=>alert("sucesss"))
 }
 
 
