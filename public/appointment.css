@@ -126,3 +126,7 @@ body {
 .successAppointment {
   display: none;
 }
+
+#doctors-label{
+  margin-left:13px;
+}
