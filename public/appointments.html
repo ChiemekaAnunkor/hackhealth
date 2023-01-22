@@ -51,22 +51,24 @@
               <select name="doctors" id="doctors"></select>
               <input id="date" type="date" />
               <button class="apptbutton btn">See Availability</button>
-              <div class="time-container"></div>
+            </form>
+
+            <form class="apt-form">
+              <select class="time-container"></select>
+              <input
+                type="text"
+                name="description"
+                id=""
+                placeholder="description"
+              />
+
+              <button class="submitAppointment btn">Create Appointment</button>
             </form>
           </div>
         </div>
         <div class="doctor-container"></div>
       </article>
     </main>
-
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <select name="" id="availabletime"></select>
-        <button class="submitAppointment">Submit</button>
-      </div>
-    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 

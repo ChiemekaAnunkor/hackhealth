@@ -61,9 +61,11 @@ module.exports = {
     },
     getDoctorsAvaiblity: (req, res) => {
         const { doctor_id, date } = req.body;
-        sequelize.query(`select * from appointment join doctors as n 
+        let dateCopy = `'${date}'`
+        console.log(dateCopy)
+        sequelize.query(`select * from appointment join doctor as n 
         on n.doctor_id = ${doctor_id}
-         where date = ${date}`)
+         where date = ${dateCopy}`)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err));
     },
