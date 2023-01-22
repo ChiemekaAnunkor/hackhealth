@@ -41,7 +41,7 @@ module.exports = {
 
     addAppointment: (req, res) => {
 
-        const { time, description, user_id, doctor_id , date} = req.body
+        const { time, description, user_id, doctor_id, date } = req.body
         sequelize.query(`insert into appointment (date,doctor_id,user_id,time,description)
                         values('${date}',${doctor_id}, ${user_id},${time},'${description}');
         `)
@@ -71,7 +71,12 @@ module.exports = {
     },
     getUserAppointment: (req, res) => {
         const { user_id } = req.body;
-        sequelize.query(`select * from appointment where user_id =${user_id} `)
+        sequelize.query(`
+        select * from appointment as a 
+                join doctor as d
+                on d.doctor_id=a.doctor_id
+                where a.user_id = ${user_id};
+        `)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err));
     },
