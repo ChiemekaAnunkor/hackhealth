@@ -28,7 +28,9 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 function renderItems(doctors) {
-  let doctor = doctors.map((item) => {
+  console.log(doctors)
+  let doctorsCopy=[...doctors]
+  let doctor = doctorsCopy.map((item) => {
     return `
       <section class="card">
       <img
@@ -43,7 +45,7 @@ function renderItems(doctors) {
     </div>
     </section>`;
   });
-  drContainer.innerHTML = doctor;
+  drContainer.innerHTML = doctor.join('');
 }
 
 const errCallback = err => console.log(err)
@@ -73,7 +75,7 @@ const renderPres = (presList) => {
             </div>
       `
   })
-  prescriptionList.innerHTML = pres;
+  prescriptionList.innerHTML = pres.join('');
 }
 
 
