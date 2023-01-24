@@ -154,7 +154,7 @@ setTimeout(() => {
     </div>
     </section>
     ` })
-        viewAppointment.innerHTML = apointmentdata
+        viewAppointment.innerHTML = apointmentdata.join('')
 
 
     })
